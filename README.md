@@ -56,4 +56,4 @@
 
 ## Files
 - **Kaggle notebook:** [Week 5 - Transfer Learning](PASTE-YOUR-KAGGLE-NOTEBOOK-LINK-HERE)
-- **Notebook in this repo:** [Week5_Transfer_Learning.ipynb](Week5_Transfer_Learning.ipynb): full notebook with outputs and written answers
+- **Notebook in this repo:** [Week5_Transfer_Learning.ipynb](week-5-transfer-learning.ipynb): full notebook with outputs and written answers
