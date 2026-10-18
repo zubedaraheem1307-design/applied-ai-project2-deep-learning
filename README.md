@@ -16,5 +16,5 @@
 **Problem:** Pneumonia is a serious lung infection in children, and diagnosing it from chest X-rays depends on scarce expert radiologists. For Project 2, I will build an image classifier that labels a chest X-ray as Normal or Pneumonia. I will use ResNet-18 transfer learning with the same pipeline as Week 5: augmentation on training data only, feature extraction, then fine-tuning, and a single final test. Because pneumonia images outnumber normal ones about 3 to 1, I will report per-class recall and the confusion matrix, not just accuracy. **Who benefits:** clinics with few radiologists, as a second-opinion screening aid. This is an educational project, not a diagnostic tool. **Dataset:** Chest X-Ray Images (Pneumonia) by Paul Mooney on Kaggle (https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia), 5,863 JPEG images in 2 classes (Normal and Pneumonia), licensed CC BY 4.0. Source: Kermany et al., "Identifying Medical Diagnoses and Treatable Diseases by Image-Based Deep Learning", Cell, 2018.
 
 ## Files
-- `Week 5 - Transfer Learning.ipynb`: full notebook with outputs and written answers
-- `resnet18_intel.pt`: fine-tuned model weights (44.8 MB)
+- **Kaggle notebook:** [Week 5 - Transfer Learning](https://github.com/zubedaraheem1307-design/applied-ai-project2-deep-learning/edit/main/Week5_Transfer_Learning.ipynb)
+
