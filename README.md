@@ -208,12 +208,7 @@ Layer4 Grad-CAM on three correct and three wrong test predictions (patients C78,
 
 ---
 
-## 4. Files and how to run
+## 4. File
 
-| File | Description |
-|---|---|
-| `week-6-malaria-detection.ipynb` | The Kaggle notebook (Parts 0 to 7, with a written analysis after every part and the Check Your Understanding answers) |
-| `week6_model.pt` | Saved weights (44.8 MB), written to `/kaggle/working/` by the notebook's Part 7 cell and not included in this repository. It stores the class order, backbone name, image size and grayscale setting. The decision threshold 0.154 is not stored in the file |
-
-The notebook was run on Kaggle with a GPU, and its data paths (`/kaggle/input/...`) only work there. To rerun it, add the dataset above to a new Kaggle notebook, turn on the GPU, and change only the configuration cell. Training on a GPU is not exactly repeatable, so a new run will give slightly different numbers.
+- **Week 6 notebook in this repo:** [week-6-malaria-detection.ipynb](week-6-malaria-detection.ipynb): full notebook with outputs and written answers (it was run on Kaggle, so its `/kaggle/input/` data paths only work there)
 
