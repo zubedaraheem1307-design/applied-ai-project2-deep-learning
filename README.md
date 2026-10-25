@@ -56,3 +56,5 @@
 
 ## File
 - **Notebook in this repo:** [Week5_Transfer_Learning.ipynb](week-5-transfer-learning.ipynb): full notebook with outputs and written answers
+
+- > **Update (Week 6):** I changed the project dataset. Instead of the shared chest X-ray reference dataset, I chose my own domain, as the lab encourages. The final project is malaria parasite detection in single blood-cell images, using the Cell Images for Detecting Malaria dataset (US National Institutes of Health, hosted on Kaggle: https://www.kaggle.com/datasets/iarunava/cell-images-for-detecting-malaria): 27,558 images in 2 balanced classes (Parasitized and Uninfected, 13,779 each), from 200 patients. The method is unchanged: ResNet-18 transfer learning, first training only the head and then fine-tuning the last block, with the best epoch chosen by macro-F1. Because the classes are balanced, the main risk is not imbalance but patient leakage, so I split the data by patient and report macro-F1, sensitivity, specificity and PPV. The final results, data audit and Grad-CAM check are in the Week 6 section further down this README. It is still an educational project and not a diagnostic tool.
