@@ -212,3 +212,31 @@ Layer4 Grad-CAM on three correct and three wrong test predictions (patients C78,
 
 - **Week 6 notebook in this repo:** [week-6-malaria-detection.ipynb](week-6-malaria-detection.ipynb): full notebook with outputs and written answers (it was run on Kaggle, so its `/kaggle/input/` data paths only work there)
 
+## Week 7: Text and Multimodal AI
+
+- Text classifier: SMS Spam Collection (UCI), 5,572 texts, macro-F1 **0.974** (word 1-2 grams) vs **0.982** (char 2-5 grams); spam precision/recall 0.979/0.933 (word) vs 0.986/0.953 (char)
+- Top positive / negative features: call, txt, free, text, reply / my, me, ok, that, it
+- NER on my domain (malaria diagnosis and medical labs, 10 sentences, 36 gold entities): out-of-the-box held-out F1 **0.778** -> with entity ruler **0.944** (rule-writing sentences 0.545 -> 1.000, inflated because rules were written from them); lab sentences 0.533 -> 0.875
+- Regex fields extracted: slide ID, body temperature, haemoglobin, date, amount, mobile, CNIC, email, invoice number; false positives tested: 7 negative cases (e.g. "Room temperature 25 °C", "SL-12345", "Hb 9.88 g/dL"), all rejected; 12/12 tests passed
+- OCR: CER raw **0.143** -> after correction rules **0.000** (date "3O/09/2O26"); lab pairs 0.062 and 0.059 -> 0.000; EasyOCR on a clean synthetic invoice 0.000 -> 0.000
+- Pipeline: image model + text evidence -> JSON record (example below)
+- Privacy: CNIC, phone, and email masked before logging
+
+```json
+{
+  "image": "C99P60ThinF_IMG_20150918_141001_cell_93.png",
+  "image_probabilities": {"Parasitized": 1.0, "Uninfected": 0.0},
+  "note_masked": "Patient Alisha Noor, aged 24, has fever with chills for 4 days after travel. Blood smear taken at PIMS Islamabad on 12/10/2026. Contact [PHONE], CNIC [CNIC].",
+  "text_evidence": {
+    "entities": [["Alisha Noor", "PERSON"], ["24", "DATE"], ["4 days", "DATE"], ["PIMS Islamabad", "ORG"], ["12/10/2026", "DATE"]],
+    "fields": {"date": ["12/10/2026"]},
+    "urgent_terms": ["fever", "chills"]
+  },
+  "decision": "REFER",
+  "reasons": ["image model: P(Parasitized) = 1.00", "note mentions: fever, chills"],
+  "disclaimer": "Decision support only; a qualified human decides."
+}
+```
+
+**Limitations:** small NER gold set (10 sentences), synthetic OCR sample, the image model looks at one cropped cell, and the system is decision support only, not a diagnosis.
+
