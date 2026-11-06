@@ -2,7 +2,7 @@
 
 A FastAPI service that serves my Week 6 image model (ResNet-18, classes `Parasitized` / `Uninfected`) and my Week 7 text evidence rules. It classifies a blood-cell image, masks private details in a clinical note, flags urgent words, and returns a `REFER` or `ROUTINE` decision for a human to review.
 
-**Author:** Zubeda Raheem | Introduction to Applied AI, BS 8th Semester, Department of Electronics
+**Author:** Zubeda Raheem | Introduction to Applied AI, Department of Electronics
 
 > Decision support only. A qualified human decides.
 
